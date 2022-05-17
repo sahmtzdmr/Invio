@@ -21,7 +21,6 @@ abstract class BaseViewModel : ViewModel() {
         baseEvent.postValue(BaseViewEvent.ShowMessage(message))
     }
 
-
     fun backTo() {
         baseEvent.postValue(BaseViewEvent.NavigateBack)
     }
@@ -64,6 +63,4 @@ abstract class BaseViewModel : ViewModel() {
             complete?.invoke()
         }
     }
-
-
 }
