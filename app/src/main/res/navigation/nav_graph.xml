@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sadikahmetozdemir.invio.ui.home.HomeFragment"
+        android:label="Search">
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/from_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.sadikahmetozdemir.invio.ui.detail.MovieDetailFragment"
+       >
+        <argument
+            android:name="movie"
+            app:argType="com.sadikahmetozdemir.invio.core.shared.remote.MovieResponseModel"
+            app:nullable="true" />
+
+
+    </fragment>
+</navigation>
