@@ -32,13 +32,12 @@ class HomeViewModel @Inject constructor(private val repository: DefaultRepositor
                     showMessage("Girdiğiniz kelimelerle ilgili bir şey bulamadık")
                 } else
                     _movies.value = it
-
-            })
+            }
+        )
     }
 
     fun toDetail(movieResponseModel: MovieResponseModel) {
 
         navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieResponseModel))
-
     }
 }

@@ -6,9 +6,8 @@ import javax.inject.Inject
 
 class DefaultRepository @Inject constructor(private val movieAPI: MovieAPI) : BaseRepository() {
 
-    suspend fun searchMovieRequest(searchText: String):MovieResponseModel =
-         execute {
+    suspend fun searchMovieRequest(searchText: String): MovieResponseModel =
+        execute {
             movieAPI.searchMovieRequest(searchText)
         }
 }
-

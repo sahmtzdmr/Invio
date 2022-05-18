@@ -24,4 +24,3 @@ class MainActivity : AppCompatActivity() {
         toolbar.setupWithNavController(navController, appBarConfiguration)
     }
 }
-

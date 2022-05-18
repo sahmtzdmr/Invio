@@ -1,8 +1,6 @@
 package com.sadikahmetozdemir.invio.utils.extensions
 
 import android.graphics.Color
-import android.view.Gravity
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.sadikahmetozdemir.invio.R

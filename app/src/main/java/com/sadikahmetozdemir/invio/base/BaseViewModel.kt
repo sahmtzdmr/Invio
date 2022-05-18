@@ -19,7 +19,6 @@ abstract class BaseViewModel : ViewModel() {
         baseEvent.postValue(BaseViewEvent.NavigateTo(directions))
     }
 
-
     fun showMessage(message: String) = viewModelScope.launch {
         if (message.isBlank())
             return@launch

@@ -11,7 +11,6 @@ class HomeAdapter(private var movieList: ArrayList<MovieResponseModel>) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     var itemClicked: ((MovieResponseModel) -> Unit)? = null
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             CustomMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -28,7 +27,6 @@ class HomeAdapter(private var movieList: ArrayList<MovieResponseModel>) :
     override fun getItemCount(): Int {
         return movieList.size
     }
-
 
     inner class ViewHolder(val binding: CustomMovieItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -53,14 +51,12 @@ class HomeAdapter(private var movieList: ArrayList<MovieResponseModel>) :
             }
         }
 
-
         fun bind(item: MovieResponseModel) {
             binding.apply {
                 ivMovie.load(url = item.Poster)
                 tvMovieTitle.text = item.Title
                 tvGenre.text = item.Genre
                 tvDescription.text = item.Plot
-
             }
         }
     }

@@ -74,7 +74,6 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> construct
                     loadingDialog.show()
                 else
                     loadingDialog.dismiss()
-
             }
         }
     }
