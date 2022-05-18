@@ -7,8 +7,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieAPI {
-    @GET("")
-    suspend fun searchMovieRequest(@Query("t") searchText: String): Response<MovieResponseModel>
+    @GET(".")
+    suspend fun searchMovieRequest(@Query("t") searchText: String): MovieResponseModel
 
 
 }

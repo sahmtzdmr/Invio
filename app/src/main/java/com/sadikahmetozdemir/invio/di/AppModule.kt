@@ -32,6 +32,8 @@ object AppModule {
     @Singleton
     fun provideMovieService(retrofitClient: Retrofit) = retrofitClient.create(MovieAPI::class.java)
 
+    @Provides
+    @Singleton
     fun provideDefaultRepository(
         movieAPI: MovieAPI
     ): DefaultRepository {
