@@ -16,18 +16,29 @@ class HomeViewModel @Inject constructor(private val repository: DefaultRepositor
     val movies: LiveData<MovieResponseModel> get() = _movies
 
     fun searchMovieRequest(searchText: String) {
+
         sendRequest(
             request = {
-
+                showLoading()
                 repository.searchMovieRequest(searchText)
             },
-            error = { it },
+            error = {
+                it
+                hideLoading()
+            },
             success = {
+                hideLoading()
                 if (it.Genre.isNullOrEmpty() && it.Poster.isNullOrEmpty() && it.Plot.isNullOrEmpty()) {
                     showMessage("Girdiğiniz kelimelerle ilgili bir şey bulamadık")
                 } else
                     _movies.value = it
 
             })
+    }
+
+    fun toDetail(movieResponseModel: MovieResponseModel) {
+
+        navigate(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieResponseModel))
+
     }
 }

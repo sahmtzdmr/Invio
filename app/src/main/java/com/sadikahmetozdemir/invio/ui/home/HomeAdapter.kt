@@ -9,6 +9,8 @@ import com.sadikahmetozdemir.invio.utils.extensions.load
 
 class HomeAdapter(private var movieList: ArrayList<MovieResponseModel>) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+    var itemClicked: ((MovieResponseModel) -> Unit)? = null
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -31,7 +33,24 @@ class HomeAdapter(private var movieList: ArrayList<MovieResponseModel>) :
     inner class ViewHolder(val binding: CustomMovieItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         init {
-
+            binding.apply {
+                ivMovie.setOnClickListener {
+                    if (bindingAdapterPosition != RecyclerView.NO_POSITION) {
+                        val currentItem = movieList.get(bindingAdapterPosition)
+                        currentItem.let {
+                            itemClicked?.invoke(it)
+                        }
+                    }
+                }
+                tvMovieTitle.setOnClickListener {
+                    if (bindingAdapterPosition != RecyclerView.NO_POSITION) {
+                        val currentItem = movieList.get(bindingAdapterPosition)
+                        currentItem.let {
+                            itemClicked?.invoke(it)
+                        }
+                    }
+                }
+            }
         }
 
 

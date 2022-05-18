@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
+import androidx.transition.Transition
 import com.google.android.material.snackbar.Snackbar
 import com.sadikahmetozdemir.invio.R
 import com.sadikahmetozdemir.invio.base.BaseFragment
@@ -27,6 +28,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             binding.recylerView.apply {
                 setHasFixedSize(true)
                 adapter = homeAdapter
+
+            }
+            homeAdapter.itemClicked = {
+                viewModel.toDetail(it)
             }
 
         }

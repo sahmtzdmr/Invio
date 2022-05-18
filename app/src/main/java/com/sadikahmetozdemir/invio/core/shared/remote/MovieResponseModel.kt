@@ -1,5 +1,9 @@
 package com.sadikahmetozdemir.invio.core.shared.remote
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MovieResponseModel(
     val Actors: String,
     val Awards: String,
@@ -26,4 +30,4 @@ data class MovieResponseModel(
     val imdbID: String,
     val imdbRating: String,
     val imdbVotes: String
-)
+) : Parcelable

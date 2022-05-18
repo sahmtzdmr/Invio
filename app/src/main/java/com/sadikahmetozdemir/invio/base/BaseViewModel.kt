@@ -1,5 +1,7 @@
 package com.sadikahmetozdemir.invio.base
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
@@ -10,15 +12,26 @@ import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
     val baseEvent = SingleLiveEvent<BaseViewEvent>()
+    private val _isloading = MutableLiveData<Boolean>()
+    val isloading: LiveData<Boolean> get() = _isloading
 
     fun navigate(directions: NavDirections) = viewModelScope.launch {
         baseEvent.postValue(BaseViewEvent.NavigateTo(directions))
     }
 
+
     fun showMessage(message: String) = viewModelScope.launch {
         if (message.isBlank())
             return@launch
         baseEvent.postValue(BaseViewEvent.ShowMessage(message))
+    }
+
+    fun showLoading() {
+        _isloading.value = true
+    }
+
+    fun hideLoading() {
+        _isloading.value = false
     }
 
     fun backTo() {
