@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.sadikahmetozdemir.invio.BR
 import com.sadikahmetozdemir.invio.core.utils.findGenericSuperclass
+import com.sadikahmetozdemir.invio.utils.LoadingDialog
 import com.sadikahmetozdemir.invio.utils.extensions.snackbar
 
 abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> constructor(
@@ -31,6 +32,9 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> construct
     open val isSharedViewModel = false
     var rootView: View? = null
     private var isViewCreated = false
+    val loadingDialog by lazy {
+        LoadingDialog(requireContext())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +68,13 @@ abstract class BaseFragment<VDB : ViewDataBinding, VM : BaseViewModel> construct
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.baseEvent.observe(viewLifecycleOwner) {
                 onViewEvent(it)
+            }
+            viewModel.isloading.observe(viewLifecycleOwner) {
+                if (it)
+                    loadingDialog.show()
+                else
+                    loadingDialog.dismiss()
+
             }
         }
     }

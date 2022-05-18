@@ -33,6 +33,7 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/search_view"
             android:layout_width="0dp"
+            android:text="@{vM.searchTextET}"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:drawableStart="@drawable/ic_baseline_search_24"
@@ -57,6 +58,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guidelineRight"
             app:layout_constraintStart_toStartOf="@id/guidelineLeft"

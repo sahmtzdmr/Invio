@@ -6,9 +6,21 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.sadikahmetozdemir.invio.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="Search">
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/from_left" />
+    </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.sadikahmetozdemir.invio.ui.detail.MovieDetailFragment"
-        android:label="MovieDetailFragment" />
+       >
+        <argument
+            android:name="movie"
+            app:argType="com.sadikahmetozdemir.invio.core.shared.remote.MovieResponseModel"
+            app:nullable="true" />
+
+
+    </fragment>
 </navigation>

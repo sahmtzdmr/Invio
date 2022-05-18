@@ -12,9 +12,6 @@ fun Fragment.snackbar(message: String) {
         val snackbar = Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG)
         snackbar.setAction(R.string.text_action) { snackbar.dismiss() }
         val view = snackbar.view
-        val params: FrameLayout.LayoutParams = view.layoutParams as FrameLayout.LayoutParams
-        params.gravity = Gravity.TOP
-        view.layoutParams = params
         snackbar.setBackgroundTint(Color.RED)
         snackbar.show()
     }
