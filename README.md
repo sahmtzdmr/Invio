@@ -19,7 +19,6 @@ Libraries
     - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) 
     - Lifecycles
     - LiveData
-    - Room
     - Navigation Component
     
 - [Retrofit](https://square.github.io/retrofit/)
